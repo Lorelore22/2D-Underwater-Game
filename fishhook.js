@@ -1,7 +1,10 @@
 class Fishhook {
     constructor() {
         this.x = WIDTH;
-        this.y = random(-HEIGHT * 0.9, 0);
+        this.y = random(-HEIGHT * 0.8, 0);
+        // just the position of the hook, without the rope
+        this.xHook = this.x;
+        this.yHook = this.y + HEIGHT * 0.999;
         //this.velocity = 0;
         //this.gravity = 3;
 
@@ -19,6 +22,7 @@ class Fishhook {
         //  rect(this.x, this.y, this.width, this.height);
         image(imgFishhook, this.x, this.y, this.width, this.height);
         this.x -= SPEEDBG;
+        this.xHook -= SPEEDBG;
     }
 
 

@@ -2,6 +2,7 @@ let bgLandscape;
 let bgSwarm;
 let octopus;
 let frameNumber = 0;
+let song;
 
 function preload() {
     // background images
@@ -13,4 +14,10 @@ function preload() {
     
     // fishhooks
     imgFishhook = loadImage("/assets/fishhook.png");
+
+    // mussels
+    imgMussel = loadImage("/assets/mussel.png");
+
+    // music
+    song = loadSound("/assets/aquarium.mp3");
 }
