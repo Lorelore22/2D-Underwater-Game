@@ -3,12 +3,9 @@ let mode;
 function setup() {
     mode = 0;
     textSize(50);
-
     let gameCanvas = createCanvas(600, 400);
     gameCanvas.parent("gameCanvas");
     game.setup();
-    song.play();
-
 }
 
 function draw() {
@@ -18,12 +15,6 @@ function draw() {
     if (mode === 1) {
         game.draw();
     }
-
-function loaded(){
-    song.play();
-}
-
-
 }
 
 function keyPressed() {

@@ -4,12 +4,14 @@ class Game {
         this.player = new Player();
         this.fishhooks = [];
         this.mussels = [];
-        this.win = false;
+        this.hands = [];
+        //this.win = false;
     }
 
     setup() {
         this.background.setup();
         this.player.setup();
+        songBg.loop();
     }
 
     draw() {
@@ -33,6 +35,7 @@ class Game {
 
         });
 
+        // mussels
         if (frameCount > 400 && frameCount % 120 === 0) {
             this.mussels.push(new Mussel());
         }
@@ -44,15 +47,33 @@ class Game {
             }
 
             if (this.collisionMussel(mussel, this.player)) {
+                songEat.play();
                 this.player.increaseScore();
                 this.mussels.splice(index, 1);
-                if (this.player.score > 20) {
+                if (this.player.score >= 20) {
                     this.win();
 
                 }
             }
         });
 
+        // hand
+        if (this.player.score >= ENEMYSCORE) {
+            if (frameCount > 240 && frameCount % 600 === 0) {
+                songEnemy.play();
+                this.hands.push(new Hand());
+            }
+            this.hands.forEach((hand, index) => {
+                hand.draw();
+
+                if (hand.x > WIDTH) {
+                    this.hands.splice(index, 1);
+                }
+                if (this.collisionHand(hand, this.player)) {
+                    this.gameOver();
+                }
+            });
+        }
     }
 
     collisionFishhook(fishhook, player) {
@@ -65,6 +86,19 @@ class Game {
         } else {
             return true;
         }
+    }
+
+    collisionHand(hand, player) {
+        if (player.x <= hand.xHand || hand.xHand + hand.width * 0.9 < player.x) {
+            return false;
+        }
+        if (player.y + octopus.images[0].height < hand.yHand * 1.05 || hand.y + hand.height < player.y) {
+            return false;
+        } else {
+            return true;
+        }
+        // To Do
+
     }
 
     collisionMussel(mussel, player) {
@@ -81,7 +115,8 @@ class Game {
 
     gameOver() {
         noLoop();
-        song.stop();
+        songBg.stop();
+        songDead.play();
         this.sleep(500);
         document.body.removeChild(gameCanvas);
         const img = document.createElement("img");
@@ -91,7 +126,12 @@ class Game {
 
     win() {
         noLoop();
-        song.stop();
+        songBg.stop();
+        document.body.removeChild(gameCanvas);
+        const videoWin = document.createElement("video-Image");
+        videoWin.setAttribute("src", "/")
+
+        // winner screen
     }
 
     sleep(milliseconds) {
