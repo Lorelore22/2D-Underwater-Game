@@ -43,16 +43,18 @@ function keyPressed() {
     if (keyCode === ENTER) {
         songBg.loop();
         mode = 1;
+        SPEEDBG = 1.5;
         game.fishhooks = [];
         game.mussels = [];
         game.hands = [];
         game.player.score = 0;
+        document.body.querySelector("#score").innerText = game.player.score;
+        document.body.querySelector("#heading").innerText = "free little octopus";
         console.log("test");
     }
 
     if (key === " ") {
         game.player.up();
-        SPEEDB = 2;
         songSwimming.setVolume(0.2);
         songSwimming.play();
     }

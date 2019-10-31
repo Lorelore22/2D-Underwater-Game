@@ -27,6 +27,8 @@ class Game {
 
             if (fishhook.x + fishhook.width < 0) {
                 this.fishhooks.splice(index, 1);
+                // this.fishhooks = this.fishhooks.filter((hook, i) => hook[i] !== hook[index]); // filter is fast than splice -> better against flickering
+                console.log(this.fishhooks.length);
             }
 
             if (this.collisionFishhook(fishhook, this.player)) {
@@ -43,6 +45,7 @@ class Game {
             mussel.draw();
 
             if (mussel.x + mussel.width < 0) {
+
                 this.mussels.splice(index, 1);
             }
 

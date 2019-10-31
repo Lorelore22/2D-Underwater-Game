@@ -16,6 +16,7 @@ class Background {
     }
 
     draw() {
+        console.log(SPEEDBG);
         clear();
 
         this.xLandscape -= SPEEDBG; // background is moving

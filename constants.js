@@ -4,4 +4,4 @@ let SPEEDBG = 1.5;
 // let SPEEDBGFISH = SPEEDBG * 1.3;
 const SPEEDHAND = 1.4;
 const ENEMYSCORE = 8; // to test, later 15
-const SCOREWIN = 15; // to test, later 20
+const SCOREWIN = 2; // to test, later 20
