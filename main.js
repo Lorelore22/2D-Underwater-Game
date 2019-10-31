@@ -10,8 +10,10 @@ function setup() {
 
 function draw() {
     if (mode === 0) {
+        clear();
         textSize(22);
         fill(1, 41, 89);
+
         textFont("Patrick Hand");
         // textFont("Amatic SC");
         text("Collect mussels!", 0.35 * WIDTH, 0.13 * HEIGHT);
