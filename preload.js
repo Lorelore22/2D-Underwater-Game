@@ -26,6 +26,9 @@ function preload() {
     // game-over
     imgGameOver = loadImage("assets/gameover-img.jpg");
 
+    // winner
+    //imgWinner = loadImage("assets/characters/octopus/1.png");
+
     // music
     songBg = loadSound("assets/sounds/aquarium.mp3");
 

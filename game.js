@@ -11,7 +11,7 @@ class Game {
     setup() {
         this.background.setup();
         this.player.setup();
-        songBg.loop();
+        //songBg.loop();
     }
 
     draw() {
@@ -50,10 +50,14 @@ class Game {
                 songEat.play();
                 this.player.increaseScore();
                 this.mussels.splice(index, 1);
+                if (this.player.score % 4) {
+                    SPEEDBG += 0.1;
+                }
                 if (this.player.score >= 20) {
                     this.win();
 
                 }
+
             }
 
             if (this.player.score >= SCOREWIN) {
@@ -116,7 +120,7 @@ class Game {
         } else {
             return true;
         }
-        // To Do
+
 
     }
 
@@ -141,7 +145,6 @@ class Game {
 
         mode = 2;
 
-
         // document.body.removeChild(gameCanvas);
         // const img = document.createElement("img");
         // img.setAttribute("src", "/assets/gameover-img.jpg");
@@ -154,7 +157,8 @@ class Game {
         songBg.stop();
         songWinner.play();
         this.sleep(1000);
-        document.body.removeChild(gameCanvas);
+        // document.body.removeChild(gameCanvas);
+        mode = 2;
         // const videoWin = document.createElement("video");
         // videoWin.setAttribute("src", "/assets/videoWinner.mp4");
         // document.body.appendChild(videowin);

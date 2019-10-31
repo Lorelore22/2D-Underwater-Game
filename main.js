@@ -25,17 +25,21 @@ function draw() {
 
     if (mode === 2) {
         loop();
-        image(imgGameOver, 0, 0, WIDTH * 1.1, HEIGHT * 1.1);
-        //fill(99, 198, 0);
-        textFont("Patrick Hand");
-        textSize(30);
-        text("Press ENTER to play again", 0.35 * WIDTH, 0.96 * HEIGHT);
+        clear();
+        if (game.player.score < SCOREWIN) {
+            image(imgGameOver, 0, 0, WIDTH * 1.1, HEIGHT * 1.1);
+        }
+        fill(255, 255, 255);
+        textFont("Amatic SC");
+        textSize(50);
+        text("Press ENTER to play again", 0, 0.98 * HEIGHT);
 
     }
 }
 
 function keyPressed() {
     if (keyCode === ENTER) {
+        songBg.loop();
         mode = 1;
         game.fishhooks = [];
         game.mussels = [];
@@ -46,6 +50,7 @@ function keyPressed() {
 
     if (key === " ") {
         game.player.up();
+        SPEEDB = 2;
         songSwimming.setVolume(0.2);
         songSwimming.play();
     }

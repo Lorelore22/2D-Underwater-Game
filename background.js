@@ -19,7 +19,7 @@ class Background {
         clear();
 
         this.xLandscape -= SPEEDBG; // background is moving
-        this.xSwarm -= SPEEDBGFISH;
+        this.xSwarm -= SPEEDBG * 1.3;
 
         image(bgLandscape, this.xLandscape, 0, WIDTH * 2, HEIGHT);
         //tint(0, 153, 204, 126);

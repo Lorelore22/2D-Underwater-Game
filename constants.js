@@ -1,7 +1,7 @@
 const WIDTH = 600;
 const HEIGHT = 400;
-const SPEEDBG = 2;
-const SPEEDBGFISH = SPEEDBG * 1.3;
+let SPEEDBG = 1.5;
+// let SPEEDBGFISH = SPEEDBG * 1.3;
 const SPEEDHAND = 1.4;
-const ENEMYSCORE = 4; // to test, later 20
-const SCOREWIN = 10; // to test, later 30
+const ENEMYSCORE = 8; // to test, later 15
+const SCOREWIN = 15; // to test, later 20
