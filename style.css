@@ -1,20 +1,25 @@
 h1 {
-    color: #a00083;
+    color: #87067e;
+    /* #a00083; */
     font-family: 'Ruge Boogie', cursive;
-    font-size: xx-large;
+    font-size: 70px;
     margin: 0;
+    font-weight: bold;
 }
 
 h2 {
-    color: #a00083;
-    margin: 5;
+    color: #87067e;
+    /* #a00083; */
+    margin: 0;
     font-family: 'Ruge Boogie', cursive;
-    font-size: x-large
+    font-size: 50px;
+    font-weight: bold;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url("/assets/background3test.png");
+    background-image: url("assets/background6test.png");
+    background-size: cover;
 }

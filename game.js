@@ -55,13 +55,30 @@ class Game {
 
                 }
             }
+
+            if (this.player.score >= SCOREWIN) {
+                this.win();
+            }
         });
 
         // hand
         if (this.player.score >= ENEMYSCORE) {
+            if (frameCount % 4 === 0 && this.background.transparent < 130) {
+                this.background.transparent++;
+                this.background.green++;
+                this.background.blue++;
+            }
+            strokeWeight(0);
+            fill(this.background.red, this.background.green, this.background.blue, this.background.transparent);
+            rect(0, 0, WIDTH, HEIGHT);
+
+            this.background.green -= 1;
+            this.background.blue -= 1;
             if (frameCount > 240 && frameCount % 600 === 0) {
+                songEnemy.setVolume(0.8);
                 songEnemy.play();
                 this.hands.push(new Hand());
+
             }
             this.hands.forEach((hand, index) => {
                 hand.draw();
@@ -74,6 +91,8 @@ class Game {
                 }
             });
         }
+
+
     }
 
     collisionFishhook(fishhook, player) {
@@ -114,24 +133,31 @@ class Game {
     }
 
     gameOver() {
+        document.body.querySelector("#heading").innerText = "game over";
         noLoop();
         songBg.stop();
         songDead.play();
-        this.sleep(500);
-        document.body.removeChild(gameCanvas);
-        const img = document.createElement("img");
-        img.setAttribute("src", "/assets/gameover-img.jpg");
-        document.body.appendChild(img);
+        this.sleep(1500);
+
+        mode = 2;
+
+
+        // document.body.removeChild(gameCanvas);
+        // const img = document.createElement("img");
+        // img.setAttribute("src", "/assets/gameover-img.jpg");
+        // document.body.appendChild(img);
     }
 
     win() {
+        document.body.querySelector("#heading").innerText = "Now you are free! Far away from the humans!";
         noLoop();
         songBg.stop();
+        songWinner.play();
+        this.sleep(1000);
         document.body.removeChild(gameCanvas);
-        const videoWin = document.createElement("video-Image");
-        videoWin.setAttribute("src", "/")
-
-        // winner screen
+        // const videoWin = document.createElement("video");
+        // videoWin.setAttribute("src", "/assets/videoWinner.mp4");
+        // document.body.appendChild(videowin);
     }
 
     sleep(milliseconds) {

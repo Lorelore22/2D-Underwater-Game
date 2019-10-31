@@ -21,8 +21,8 @@ class Fishhook {
 
         //  rect(this.x, this.y, this.width, this.height);
         image(imgFishhook, this.x, this.y, this.width, this.height);
-        this.x -= SPEEDBG;
-        this.xHook -= SPEEDBG;
+        this.x -= SPEEDBG * 1.15;
+        this.xHook -= SPEEDBG * 1.15;
     }
 
 
